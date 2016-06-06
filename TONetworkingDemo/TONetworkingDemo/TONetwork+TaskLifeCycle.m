@@ -1,5 +1,5 @@
 //
-//  TONetwork+coco3g.m
+//  TONetwork+TaskLifeCycle.m
 //  coco3g
 //
 //  Created by Tony on 16-01-06.
@@ -9,8 +9,9 @@
 #import <TouchJSON/CJSONDeserializer.h>
 #import "AppDelegate.h"
 #import <TONetworking/TONetwork.h>
+#import "TipManager.h"
 
-@implementation TONetwork (TOTask)
+@implementation TONetwork (TaskLifeCycle)
 
 
 //类别中扩展属性
@@ -22,9 +23,7 @@
 //返回值将决定是否通知owner
 -(BOOL)afterTask:(TOTask *) task
 {
-    if(task.responseString){
-        
-        
+    if(task.responseData){
         
         // 去除回车与空格
         task.responseString = [task.responseString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
@@ -64,12 +63,12 @@
             
             
             
-            int errorCode = [result[@"code"] intValue];
+            int errorCode = [result[@"error_code"] intValue];
             
             if (errorCode != 0) {
                 
                 
-                UIAlertController * alertController = [UIAlertController alertControllerWithTitle: @"提示"  message:result[@"message"] preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertController * alertController = [UIAlertController alertControllerWithTitle: @"提示"  message:result[@"reason"] preferredStyle:UIAlertControllerStyleAlert];
                 
                 [alertController addAction:[UIAlertAction actionWithTitle:@"好的"  style: UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                     
@@ -108,8 +107,19 @@
             
         }else{
             if (task.needTip) {
-//                UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:[NSString stringWithFormat:@"HTTP请求失败 (ErrorCode:%d)",task.responseStatusCode] delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-//                [alert show];
+                UIAlertController * alertController = [UIAlertController alertControllerWithTitle: @"提示"  message:[NSString stringWithFormat:@"HTTP请求失败 (ErrorCode:%d)",task.responseStatusCode] preferredStyle:UIAlertControllerStyleAlert];
+                
+                [alertController addAction:[UIAlertAction actionWithTitle:@"好的"  style: UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                    
+                    
+                }]];
+                
+                
+                UIViewController * root = [UIApplication sharedApplication].keyWindow.rootViewController;
+                
+                [root presentViewController:alertController animated:YES completion:nil];
+                
+                
             }
             
             NSLog(@"error: path[%@]",task.path);
@@ -117,12 +127,19 @@
             return NO;
             
         }
+    }else {
+        UIAlertController * alertController = [UIAlertController alertControllerWithTitle: @"提示"  message:@"网络错误请稍后再试" preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"好的"  style: UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+            
+        }]];
+        
+        UIViewController * root = [UIApplication sharedApplication].keyWindow.rootViewController;
+        [root presentViewController:alertController animated:YES completion:nil];
+        
+        return NO;
+
     }
-    
-    return NO;
-    
-    
-    
 }
 
 

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		E742CAD6F3CB939B2A324993 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F69B1BE23454B86DC10ED57 /* libPods.a */; };
 		EA61FDB41D0550E100BF48EA /* TipManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA61FDB31D0550E100BF48EA /* TipManager.m */; };
-		EA61FDB91D05586800BF48EA /* TONetwork+coco3g.m in Sources */ = {isa = PBXBuildFile; fileRef = EA61FDB81D05586800BF48EA /* TONetwork+coco3g.m */; };
+		EA61FDB91D05586800BF48EA /* TONetwork+TaskLifeCycle.m in Sources */ = {isa = PBXBuildFile; fileRef = EA61FDB81D05586800BF48EA /* TONetwork+TaskLifeCycle.m */; };
 		EAD583D61D05137100F76581 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD583D51D05137100F76581 /* main.m */; };
 		EAD583D91D05137100F76581 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD583D81D05137100F76581 /* AppDelegate.m */; };
 		EAD583DC1D05137100F76581 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD583DB1D05137100F76581 /* ViewController.m */; };
@@ -35,7 +35,7 @@
 		DC3B2FF8785129DCB2A7763A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EA61FDB21D0550E100BF48EA /* TipManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipManager.h; sourceTree = "<group>"; };
 		EA61FDB31D0550E100BF48EA /* TipManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipManager.m; sourceTree = "<group>"; };
-		EA61FDB81D05586800BF48EA /* TONetwork+coco3g.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TONetwork+coco3g.m"; sourceTree = "<group>"; };
+		EA61FDB81D05586800BF48EA /* TONetwork+TaskLifeCycle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TONetwork+TaskLifeCycle.m"; sourceTree = "<group>"; };
 		EA677AA31D05172300C11DB8 /* libTONetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTONetworking.a; path = "../TONetworking/build/Debug-iphoneos/libTONetworking.a"; sourceTree = "<group>"; };
 		EAD583D11D05137100F76581 /* TONetworkingDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TONetworkingDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAD583D51D05137100F76581 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -111,7 +111,7 @@
 		EAD583D31D05137100F76581 /* TONetworkingDemo */ = {
 			isa = PBXGroup;
 			children = (
-				EA61FDB81D05586800BF48EA /* TONetwork+coco3g.m */,
+				EA61FDB81D05586800BF48EA /* TONetwork+TaskLifeCycle.m */,
 				EA61FDB21D0550E100BF48EA /* TipManager.h */,
 				EA61FDB31D0550E100BF48EA /* TipManager.m */,
 				EAD583D81D05137100F76581 /* AppDelegate.m */,
@@ -281,7 +281,7 @@
 				EAD583DC1D05137100F76581 /* ViewController.m in Sources */,
 				EAD583D91D05137100F76581 /* AppDelegate.m in Sources */,
 				EAD583D61D05137100F76581 /* main.m in Sources */,
-				EA61FDB91D05586800BF48EA /* TONetwork+coco3g.m in Sources */,
+				EA61FDB91D05586800BF48EA /* TONetwork+TaskLifeCycle.m in Sources */,
 				EA61FDB41D0550E100BF48EA /* TipManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

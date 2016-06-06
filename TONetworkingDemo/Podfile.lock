@@ -23,7 +23,7 @@ PODS:
   - ReactiveCocoa/no-arc (2.5)
   - ReactiveCocoa/UI (2.5):
     - ReactiveCocoa/Core
-  - TONetworking (1.0.7):
+  - TONetworking (1.0.8):
     - AFNetworking
     - Reachability
   - TouchJSON (1.1)
@@ -41,7 +41,7 @@ SPEC CHECKSUMS:
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
-  TONetworking: cde0ed692640476ed4107c5b755366debfe2515c
+  TONetworking: 70934aa0e65efb8683a149196ae732044bf229e7
   TouchJSON: 39be3595ebe489095311d97ce0c824417324cb74
 
 COCOAPODS: 0.38.2

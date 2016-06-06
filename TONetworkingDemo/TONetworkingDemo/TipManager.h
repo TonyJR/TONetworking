@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <MBProgressHUD/MBProgressHUD.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 
 @interface TipManager : NSObject

@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "TipManager.h"
+#import <TONetworking/TONetwork.h>
 
 @interface AppDelegate ()
 
@@ -17,6 +19,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    //加载提示 (打断式提醒————UIAlertController)
+    progressListenTo([TONetwork sharedNetwork], message);
+    //错误提示 (非打断提醒————MBProgressBar)
+    tipListenTo([TONetwork sharedNetwork], tip);
     return YES;
 }
 

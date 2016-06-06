@@ -151,6 +151,77 @@ static TONetwork * _sharedNetwork = nil;
 }
 
 
+//获取任务
+-(TOTask *)taskByKey:(NSString *)taskKey{
+    __block TOTask * result;
+    
+    dispatch_sync(task_queue, ^{
+        
+        if (self.currentTask) {
+            TOTask * task = self.currentTask;
+            if ([task.taskKey isEqualToString:taskKey]) {
+                if (task.status != TOTaskCancel) {
+                    result = task;
+                }
+            }
+        }
+        for (int i=0;i< self.queueTasks.count;i++) {
+            TOTask * task = self.queueTasks[i];
+            if (task.taskKey && [task.taskId isEqualToString:taskKey]) {
+                if (task.status != TOTaskCancel) {
+                    result = task;
+                }
+            }
+        }
+        for (int i=0;i< self.threadTasks.count;i++) {
+            TOTask * task = self.threadTasks[i];
+            if ([task.taskKey isEqualToString:taskKey]) {
+                if (task.status != TOTaskCancel) {
+                    result = task;
+                }
+            }
+        }
+        
+    });
+    
+    return result;
+}
+//获取任务
+-(TOTask *)taskById:(NSString *)taskId{
+    
+    __block TOTask * result;
+    
+    dispatch_sync(task_queue, ^{
+        
+        if (self.currentTask) {
+            TOTask * task = self.currentTask;
+            if ([task.taskId isEqualToString:taskId]) {
+                if (task.status != TOTaskCancel) {
+                    result = task;
+                }
+            }
+        }
+        for (int i=0;i< self.queueTasks.count;i++) {
+            TOTask * task = self.queueTasks[i];
+            if (task.taskId && [task.taskId isEqualToString:taskId]) {
+                if (task.status != TOTaskCancel) {
+                    result = task;
+                }
+            }
+        }
+        for (int i=0;i< self.threadTasks.count;i++) {
+            TOTask * task = self.threadTasks[i];
+            if ([task.taskId isEqualToString:taskId]) {
+                if (task.status != TOTaskCancel) {
+                    result = task;
+                }
+            }
+        }
+        
+    });
+    
+    return result;
+}
 
 //停止所有加载
 -(void)stopAllTask{
@@ -196,7 +267,7 @@ static TONetwork * _sharedNetwork = nil;
     }
     for (int i=0;i< self.queueTasks.count;i++) {
         TOTask * task = self.queueTasks[i];
-        if (task.taskKey && [task.taskId isEqualToString:taskId]) {
+        if ([task.taskId isEqualToString:taskId]) {
             task.status = TOTaskCancel;
             [self.queueTasks removeObjectAtIndex:i];
             i--;
@@ -247,7 +318,7 @@ static TONetwork * _sharedNetwork = nil;
     }
     for (int i=0;i< self.threadTasks.count;i++) {
         TOTask * task = self.threadTasks[i];
-        if ([task.taskKey isEqualToString:taskKey]) {
+        if (task.taskKey && [task.taskKey isEqualToString:taskKey]) {
             task.status = TOTaskCancel;
             [self.threadTasks removeObjectAtIndex:i];
             i--;
@@ -362,7 +433,6 @@ static TONetwork * _sharedNetwork = nil;
     NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
     for (NSHTTPCookie *cookie in cookies)
     {
-        NSLog(@"%@",cookie.name);
         [[NSHTTPCookieStorage sharedHTTPCookieStorage] deleteCookie:cookie];
     }
 }
@@ -404,7 +474,6 @@ static TONetwork * _sharedNetwork = nil;
 - (void) updateInterfaceWithReachability: (Reachability*) curReach
 
 {
-    
     //对连接改变做出响应的处理动作。
     NetworkStatus status = [curReach currentReachabilityStatus];
     
@@ -435,7 +504,6 @@ static TONetwork * _sharedNetwork = nil;
 }
 
 // 连接改变
-
 - (void) reachabilityChanged: (NSNotification* )note
 
 {
@@ -487,9 +555,6 @@ static TONetwork * _sharedNetwork = nil;
 }
 
 
--(void)blockWithMainThread:(TOTask *)task{
-    
-}
 
 //请求结束时通知
 -(void)requestEnd:(TOTask *)task{
