@@ -1,0 +1,32 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "0B72FDC2EBF454F0E20B9500294BE887C1C003D9",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "fc58265f-4466-5f45-8e76-3c0458791701++5493" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "fc58265f-4466-5f45-8e76-3c0458791701++5493" : 0,
+    "0B72FDC2EBF454F0E20B9500294BE887C1C003D9" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "EAD03757-0819-4632-BDD6-D37C1CD58895",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "fc58265f-4466-5f45-8e76-3c0458791701++5493" : "TONetworking\/TONetworking\/Reachability\/",
+    "0B72FDC2EBF454F0E20B9500294BE887C1C003D9" : "TONetworking\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "TONetworking",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "TONetworking.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/TonyJR\/TONetworking.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0B72FDC2EBF454F0E20B9500294BE887C1C003D9"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/52.96.57.97:888\/svn\/EptSys",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "fc58265f-4466-5f45-8e76-3c0458791701++5493"
+    }
+  ]
+}

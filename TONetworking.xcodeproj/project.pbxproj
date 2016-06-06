@@ -29,6 +29,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EA677AB91D051D2A00C11DB8 /* TONetworking.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TONetworking.podspec; sourceTree = "<group>"; };
 		EAF975591D0508C500152979 /* libTONetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTONetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAF9755C1D0508C500152979 /* TONetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TONetworking.h; sourceTree = "<group>"; };
 		EAF975661D050AA000152979 /* AFAutoPurgingImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFAutoPurgingImageCache.h; sourceTree = "<group>"; };
@@ -73,6 +74,7 @@
 		EAF975501D0508C500152979 = {
 			isa = PBXGroup;
 			children = (
+				EA677AB91D051D2A00C11DB8 /* TONetworking.podspec */,
 				EAF9755B1D0508C500152979 /* TONetworking */,
 				EAF9755A1D0508C500152979 /* Products */,
 			);
