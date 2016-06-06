@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <TONetworking/TONetwork.h>
 
 @interface ViewController ()
 
@@ -18,10 +19,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    TOTask * task = [[TOTask alloc] initWithPath:@"http://www.baidu.com" parames:nil taskOver:^(TOTask *task) {
-        
-    }];
+    TOTask * task = [[TOTask alloc] initWithPath:@"http://www.baidu.com" parames:nil owner:self taskOver:@selector(taskover:)];
     [task startAtOnce];
+}
+
+-(void)taskover:(TOTask *)task{
+    
 }
 
 - (void)didReceiveMemoryWarning {

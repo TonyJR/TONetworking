@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MBProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -19,20 +24,55 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ReactiveCocoa.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>TONetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>TouchJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1893DE70459B9C5430E1E53597BF9817</key>
+		<key>5051A29A4824F27C59C13699F588BE1E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E10C6586D187605A21101D5B5C6C34C0</key>
+		<key>5A7BB20ED199C17C190363451433041D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FDB13FC9A8288F68AFAF49842CAD8065</key>
+		<key>6951DA9871DA259A9AAA6EFC68AEF8EB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AA260725DBACE6318B71A79C6FB8DE7F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AC7C4536757672FD6B3C78182FF5EBD2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BBE70AB8FA94794405AA9D6D4366C375</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F39DC55FD23D6162AD6BC7908AC4820E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -14,19 +14,34 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - MBProgressHUD (0.9.2)
   - Reachability (3.2)
-  - TONetworking (1.0.6):
+  - ReactiveCocoa (2.5):
+    - ReactiveCocoa/UI (= 2.5)
+  - ReactiveCocoa/Core (2.5):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.5)
+  - ReactiveCocoa/UI (2.5):
+    - ReactiveCocoa/Core
+  - TONetworking (1.0.7):
     - AFNetworking
     - Reachability
+  - TouchJSON (1.1)
 
 DEPENDENCIES:
   - AFNetworking
+  - MBProgressHUD
   - Reachability
+  - ReactiveCocoa
   - TONetworking
+  - TouchJSON
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
-  TONetworking: b419abc49fda7777a933752a314cfbeaf039cfb2
+  ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
+  TONetworking: cde0ed692640476ed4107c5b755366debfe2515c
+  TouchJSON: 39be3595ebe489095311d97ce0c824417324cb74
 
 COCOAPODS: 0.38.2

@@ -12,7 +12,6 @@
 
 
 
-
 //网络状态
 typedef enum TONetStatus{
     TONetStatusNoSign = 0,
@@ -82,6 +81,11 @@ typedef enum TONetStatus{
 
 
 
+@end
+
+
+@interface TONetwork (TaskLifeCycle)
+
 
 //如需在请求时特殊处理，请使用类别覆盖下面三个方法
 
@@ -91,8 +95,5 @@ typedef enum TONetStatus{
 //返回值将决定是否通知owner
 -(BOOL)afterTask:(TOTask *) task;
 -(BOOL)errorTask:(TOTask *) task;
-
-
-
 
 @end

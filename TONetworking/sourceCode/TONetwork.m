@@ -348,8 +348,6 @@ static TONetwork * _sharedNetwork = nil;
                 
                  [self performSelectorOnMainThread:@selector(requestFinished:) withObject:task_block waitUntilDone:YES];
             }
-            
-            
            
         });
         
