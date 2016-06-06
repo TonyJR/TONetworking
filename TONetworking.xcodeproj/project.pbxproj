@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EAF9755D1D0508C500152979 /* TONetworking.h in Copy Files */ = {isa = PBXBuildFile; fileRef = EAF9755C1D0508C500152979 /* TONetworking.h */; };
 		EAF975821D050AA000152979 /* TONetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = EAF9757C1D050AA000152979 /* TONetwork.m */; };
 		EAF975831D050AA000152979 /* TORequestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EAF9757E1D050AA000152979 /* TORequestHelper.m */; };
 		EAF975841D050AA000152979 /* TOTask.m in Sources */ = {isa = PBXBuildFile; fileRef = EAF975801D050AA000152979 /* TOTask.m */; };
@@ -21,7 +20,6 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				EAF9755D1D0508C500152979 /* TONetworking.h in Copy Files */,
 			);
 			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -31,7 +29,6 @@
 /* Begin PBXFileReference section */
 		EA677AB91D051D2A00C11DB8 /* TONetworking.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TONetworking.podspec; sourceTree = "<group>"; };
 		EAF975591D0508C500152979 /* libTONetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTONetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		EAF9755C1D0508C500152979 /* TONetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TONetworking.h; path = ../TONetworking.h; sourceTree = "<group>"; };
 		EAF975661D050AA000152979 /* AFAutoPurgingImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFAutoPurgingImageCache.h; sourceTree = "<group>"; };
 		EAF975671D050AA000152979 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		EAF975681D050AA000152979 /* AFImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFImageDownloader.h; sourceTree = "<group>"; };
@@ -126,7 +123,6 @@
 		EAF975781D050AA000152979 /* sourceCode */ = {
 			isa = PBXGroup;
 			children = (
-				EAF9755C1D0508C500152979 /* TONetworking.h */,
 				EAF9757B1D050AA000152979 /* TONetwork.h */,
 				EAF9757C1D050AA000152979 /* TONetwork.m */,
 				EAF9757D1D050AA000152979 /* TORequestHelper.h */,
@@ -295,6 +291,7 @@
 		EAF975631D0508C500152979 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -304,6 +301,7 @@
 		EAF975641D0508C500152979 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
