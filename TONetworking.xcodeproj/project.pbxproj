@@ -31,7 +31,7 @@
 /* Begin PBXFileReference section */
 		EA677AB91D051D2A00C11DB8 /* TONetworking.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TONetworking.podspec; sourceTree = "<group>"; };
 		EAF975591D0508C500152979 /* libTONetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTONetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		EAF9755C1D0508C500152979 /* TONetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TONetworking.h; sourceTree = "<group>"; };
+		EAF9755C1D0508C500152979 /* TONetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TONetworking.h; path = ../TONetworking.h; sourceTree = "<group>"; };
 		EAF975661D050AA000152979 /* AFAutoPurgingImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFAutoPurgingImageCache.h; sourceTree = "<group>"; };
 		EAF975671D050AA000152979 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		EAF975681D050AA000152979 /* AFImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFImageDownloader.h; sourceTree = "<group>"; };
@@ -94,7 +94,6 @@
 				EAF975851D050B4C00152979 /* Reachability */,
 				EAF975651D050AA000152979 /* AFNetworking */,
 				EAF975781D050AA000152979 /* sourceCode */,
-				EAF9755C1D0508C500152979 /* TONetworking.h */,
 			);
 			path = TONetworking;
 			sourceTree = "<group>";
@@ -127,6 +126,7 @@
 		EAF975781D050AA000152979 /* sourceCode */ = {
 			isa = PBXGroup;
 			children = (
+				EAF9755C1D0508C500152979 /* TONetworking.h */,
 				EAF9757B1D050AA000152979 /* TONetwork.h */,
 				EAF9757C1D050AA000152979 /* TONetwork.m */,
 				EAF9757D1D050AA000152979 /* TORequestHelper.h */,

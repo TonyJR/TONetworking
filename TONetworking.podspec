@@ -12,8 +12,8 @@ s.author           = { "Tony.JR" => "show_3@163.com" }
 s.source           = { :git => "https://github.com/TonyJR/TONetworking.git", :tag => "#{s.version}" }
 s.platform         = :ios, '7.0'           
 s.requires_arc     = true               
-s.source_files     = 'TONetworking/sourceCode/.{h,m}'
-s.public_header_files = 'TONetworking/TONetworking.h'
+s.source_files     = 'TONetworking/sourceCode/*.{h,m}'
+s.public_header_files = 'TONetworking/sourceCode/TONetworking.h'
 s.frameworks       = 'Foundation'
 
 s.dependency        'AFNetworking'
