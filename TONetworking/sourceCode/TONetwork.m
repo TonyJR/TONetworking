@@ -9,8 +9,6 @@
 #import "TONetwork.h"
 #import "Reachability.h"
 #import <Foundation/Foundation.h>
-#import <objc/message.h>
-
 #import "TORequestHelper.h"
 
 
@@ -466,7 +464,7 @@ static TONetwork * _sharedNetwork = nil;
         
         if ([self afterTask:task]) {
             if (task.owner && task.taskOverHandler) {
-                objc_msgSend(task.owner,task.taskOverHandler,task);
+                [task.owner performSelector:task.taskOverHandler withObject:task];
             }
             if (task.successBlock) {
                 task.successBlock(task);
@@ -474,7 +472,7 @@ static TONetwork * _sharedNetwork = nil;
             
         }else {
             if(task.owner && task.taskErrorHandler){
-                objc_msgSend(task.owner,task.taskErrorHandler,task);
+                [task.owner performSelector:task.taskErrorHandler withObject:task];
             }
             
             if (task.errorBlock) {
