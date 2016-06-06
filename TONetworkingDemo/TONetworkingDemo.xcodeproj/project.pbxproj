@@ -1,0 +1,507 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E742CAD6F3CB939B2A324993 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F69B1BE23454B86DC10ED57 /* libPods.a */; };
+		EA677AB61D051BBA00C11DB8 /* TONetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = EA677AB11D051BBA00C11DB8 /* TONetwork.m */; };
+		EA677AB71D051BBA00C11DB8 /* TORequestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EA677AB31D051BBA00C11DB8 /* TORequestHelper.m */; };
+		EA677AB81D051BBA00C11DB8 /* TOTask.m in Sources */ = {isa = PBXBuildFile; fileRef = EA677AB51D051BBA00C11DB8 /* TOTask.m */; };
+		EAD583D61D05137100F76581 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD583D51D05137100F76581 /* main.m */; };
+		EAD583D91D05137100F76581 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD583D81D05137100F76581 /* AppDelegate.m */; };
+		EAD583DC1D05137100F76581 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD583DB1D05137100F76581 /* ViewController.m */; };
+		EAD583DF1D05137100F76581 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAD583DD1D05137100F76581 /* Main.storyboard */; };
+		EAD583E11D05137100F76581 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAD583E01D05137100F76581 /* Assets.xcassets */; };
+		EAD583E41D05137100F76581 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAD583E21D05137100F76581 /* LaunchScreen.storyboard */; };
+		EAD583EF1D05137100F76581 /* TONetworkingDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD583EE1D05137100F76581 /* TONetworkingDemoTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EAD583EB1D05137100F76581 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EAD583C91D05137100F76581 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EAD583D01D05137100F76581;
+			remoteInfo = TONetworkingDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9C1DBBDD4E10F28D93B6723A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		9F69B1BE23454B86DC10ED57 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC3B2FF8785129DCB2A7763A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		EA677AA31D05172300C11DB8 /* libTONetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTONetworking.a; path = "../TONetworking/build/Debug-iphoneos/libTONetworking.a"; sourceTree = "<group>"; };
+		EA677AB01D051BBA00C11DB8 /* TONetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TONetwork.h; sourceTree = "<group>"; };
+		EA677AB11D051BBA00C11DB8 /* TONetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TONetwork.m; sourceTree = "<group>"; };
+		EA677AB21D051BBA00C11DB8 /* TORequestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TORequestHelper.h; sourceTree = "<group>"; };
+		EA677AB31D051BBA00C11DB8 /* TORequestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TORequestHelper.m; sourceTree = "<group>"; };
+		EA677AB41D051BBA00C11DB8 /* TOTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTask.h; sourceTree = "<group>"; };
+		EA677AB51D051BBA00C11DB8 /* TOTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTask.m; sourceTree = "<group>"; };
+		EAD583D11D05137100F76581 /* TONetworkingDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TONetworkingDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAD583D51D05137100F76581 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EAD583D71D05137100F76581 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EAD583D81D05137100F76581 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EAD583DA1D05137100F76581 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		EAD583DB1D05137100F76581 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		EAD583DE1D05137100F76581 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EAD583E01D05137100F76581 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EAD583E31D05137100F76581 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EAD583E51D05137100F76581 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAD583EA1D05137100F76581 /* TONetworkingDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TONetworkingDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAD583EE1D05137100F76581 /* TONetworkingDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TONetworkingDemoTests.m; sourceTree = "<group>"; };
+		EAD583F01D05137100F76581 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EAD583CE1D05137100F76581 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E742CAD6F3CB939B2A324993 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAD583E71D05137100F76581 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		45D9DBBF2026749C5D18088B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9C1DBBDD4E10F28D93B6723A /* Pods.debug.xcconfig */,
+				DC3B2FF8785129DCB2A7763A /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D081E63482E2F34E62607266 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EA677AA31D05172300C11DB8 /* libTONetworking.a */,
+				9F69B1BE23454B86DC10ED57 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EA677AAF1D051BBA00C11DB8 /* sourceCode */ = {
+			isa = PBXGroup;
+			children = (
+				EA677AB01D051BBA00C11DB8 /* TONetwork.h */,
+				EA677AB11D051BBA00C11DB8 /* TONetwork.m */,
+				EA677AB21D051BBA00C11DB8 /* TORequestHelper.h */,
+				EA677AB31D051BBA00C11DB8 /* TORequestHelper.m */,
+				EA677AB41D051BBA00C11DB8 /* TOTask.h */,
+				EA677AB51D051BBA00C11DB8 /* TOTask.m */,
+			);
+			name = sourceCode;
+			path = ../../TONetworking/sourceCode;
+			sourceTree = "<group>";
+		};
+		EAD583C81D05137100F76581 = {
+			isa = PBXGroup;
+			children = (
+				EAD583D31D05137100F76581 /* TONetworkingDemo */,
+				EAD583ED1D05137100F76581 /* TONetworkingDemoTests */,
+				EAD583D21D05137100F76581 /* Products */,
+				45D9DBBF2026749C5D18088B /* Pods */,
+				D081E63482E2F34E62607266 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EAD583D21D05137100F76581 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EAD583D11D05137100F76581 /* TONetworkingDemo.app */,
+				EAD583EA1D05137100F76581 /* TONetworkingDemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EAD583D31D05137100F76581 /* TONetworkingDemo */ = {
+			isa = PBXGroup;
+			children = (
+				EA677AAF1D051BBA00C11DB8 /* sourceCode */,
+				EAD583D71D05137100F76581 /* AppDelegate.h */,
+				EAD583D81D05137100F76581 /* AppDelegate.m */,
+				EAD583DA1D05137100F76581 /* ViewController.h */,
+				EAD583DB1D05137100F76581 /* ViewController.m */,
+				EAD583DD1D05137100F76581 /* Main.storyboard */,
+				EAD583E01D05137100F76581 /* Assets.xcassets */,
+				EAD583E21D05137100F76581 /* LaunchScreen.storyboard */,
+				EAD583E51D05137100F76581 /* Info.plist */,
+				EAD583D41D05137100F76581 /* Supporting Files */,
+			);
+			path = TONetworkingDemo;
+			sourceTree = "<group>";
+		};
+		EAD583D41D05137100F76581 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EAD583D51D05137100F76581 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EAD583ED1D05137100F76581 /* TONetworkingDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				EAD583EE1D05137100F76581 /* TONetworkingDemoTests.m */,
+				EAD583F01D05137100F76581 /* Info.plist */,
+			);
+			path = TONetworkingDemoTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EAD583D01D05137100F76581 /* TONetworkingDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EAD583F31D05137100F76581 /* Build configuration list for PBXNativeTarget "TONetworkingDemo" */;
+			buildPhases = (
+				F757544BBAA1B54C6794E533 /* Check Pods Manifest.lock */,
+				EAD583CD1D05137100F76581 /* Sources */,
+				EAD583CE1D05137100F76581 /* Frameworks */,
+				EAD583CF1D05137100F76581 /* Resources */,
+				44712A9E1D22C3DFC6989C34 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TONetworkingDemo;
+			productName = TONetworkingDemo;
+			productReference = EAD583D11D05137100F76581 /* TONetworkingDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EAD583E91D05137100F76581 /* TONetworkingDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EAD583F61D05137100F76581 /* Build configuration list for PBXNativeTarget "TONetworkingDemoTests" */;
+			buildPhases = (
+				EAD583E61D05137100F76581 /* Sources */,
+				EAD583E71D05137100F76581 /* Frameworks */,
+				EAD583E81D05137100F76581 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EAD583EC1D05137100F76581 /* PBXTargetDependency */,
+			);
+			name = TONetworkingDemoTests;
+			productName = TONetworkingDemoTests;
+			productReference = EAD583EA1D05137100F76581 /* TONetworkingDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EAD583C91D05137100F76581 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Tony;
+				TargetAttributes = {
+					EAD583D01D05137100F76581 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					EAD583E91D05137100F76581 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = EAD583D01D05137100F76581;
+					};
+				};
+			};
+			buildConfigurationList = EAD583CC1D05137100F76581 /* Build configuration list for PBXProject "TONetworkingDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EAD583C81D05137100F76581;
+			productRefGroup = EAD583D21D05137100F76581 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EAD583D01D05137100F76581 /* TONetworkingDemo */,
+				EAD583E91D05137100F76581 /* TONetworkingDemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EAD583CF1D05137100F76581 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAD583E41D05137100F76581 /* LaunchScreen.storyboard in Resources */,
+				EAD583E11D05137100F76581 /* Assets.xcassets in Resources */,
+				EAD583DF1D05137100F76581 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAD583E81D05137100F76581 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		44712A9E1D22C3DFC6989C34 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F757544BBAA1B54C6794E533 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EAD583CD1D05137100F76581 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAD583DC1D05137100F76581 /* ViewController.m in Sources */,
+				EA677AB81D051BBA00C11DB8 /* TOTask.m in Sources */,
+				EAD583D91D05137100F76581 /* AppDelegate.m in Sources */,
+				EA677AB71D051BBA00C11DB8 /* TORequestHelper.m in Sources */,
+				EAD583D61D05137100F76581 /* main.m in Sources */,
+				EA677AB61D051BBA00C11DB8 /* TONetwork.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAD583E61D05137100F76581 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAD583EF1D05137100F76581 /* TONetworkingDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EAD583EC1D05137100F76581 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EAD583D01D05137100F76581 /* TONetworkingDemo */;
+			targetProxy = EAD583EB1D05137100F76581 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EAD583DD1D05137100F76581 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EAD583DE1D05137100F76581 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EAD583E21D05137100F76581 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EAD583E31D05137100F76581 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EAD583F11D05137100F76581 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		EAD583F21D05137100F76581 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EAD583F41D05137100F76581 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C1DBBDD4E10F28D93B6723A /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TONetworkingDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.coco3g.TONetworkingDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EAD583F51D05137100F76581 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC3B2FF8785129DCB2A7763A /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TONetworkingDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.coco3g.TONetworkingDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		EAD583F71D05137100F76581 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TONetworkingDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.coco3g.TONetworkingDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TONetworkingDemo.app/TONetworkingDemo";
+			};
+			name = Debug;
+		};
+		EAD583F81D05137100F76581 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TONetworkingDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.coco3g.TONetworkingDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TONetworkingDemo.app/TONetworkingDemo";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EAD583CC1D05137100F76581 /* Build configuration list for PBXProject "TONetworkingDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAD583F11D05137100F76581 /* Debug */,
+				EAD583F21D05137100F76581 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EAD583F31D05137100F76581 /* Build configuration list for PBXNativeTarget "TONetworkingDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAD583F41D05137100F76581 /* Debug */,
+				EAD583F51D05137100F76581 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EAD583F61D05137100F76581 /* Build configuration list for PBXNativeTarget "TONetworkingDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAD583F71D05137100F76581 /* Debug */,
+				EAD583F81D05137100F76581 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EAD583C91D05137100F76581 /* Project object */;
+}
