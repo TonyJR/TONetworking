@@ -464,7 +464,10 @@ static TONetwork * _sharedNetwork = nil;
         
         if ([self afterTask:task]) {
             if (task.owner && task.taskOverHandler) {
-                [task.owner performSelector:task.taskOverHandler withObject:task];
+                
+                IMP imp = [task.owner methodForSelector:task.taskOverHandler];
+                void (*func)(id, SEL, TOTask *) = (void *)imp;
+                func(task.owner, task.taskOverHandler, task);
             }
             if (task.successBlock) {
                 task.successBlock(task);
@@ -472,7 +475,9 @@ static TONetwork * _sharedNetwork = nil;
             
         }else {
             if(task.owner && task.taskErrorHandler){
-                [task.owner performSelector:task.taskErrorHandler withObject:task];
+                IMP imp = [task.owner methodForSelector:task.taskErrorHandler];
+                void (*func)(id, SEL, TOTask *) = (void *)imp;
+                func(task.owner, task.taskErrorHandler, task);
             }
             
             if (task.errorBlock) {
@@ -482,6 +487,7 @@ static TONetwork * _sharedNetwork = nil;
     }
     
 }
+
 
 -(void)blockWithMainThread:(TOTask *)task{
     
