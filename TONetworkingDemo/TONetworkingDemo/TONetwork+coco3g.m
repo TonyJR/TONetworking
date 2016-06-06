@@ -6,12 +6,11 @@
 //  Copyright (c) 2015年 Tony. All rights reserved.
 //
 
-#import "TONetwork+coco3g.h"
 #import <TouchJSON/CJSONDeserializer.h>
 #import "AppDelegate.h"
+#import <TONetworking/TONetwork.h>
 
-
-@implementation TONetwork (coco3g)
+@implementation TONetwork (TOTask)
 
 
 //类别中扩展属性

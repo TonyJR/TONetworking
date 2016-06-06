@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CA1E31AFA2BDB67EFD7983DB"
+               BlueprintIdentifier = "BF6027AE5832CB5EC3EB400C"
                BuildableName = "libTONetworking.a"
                BlueprintName = "TONetworking"
                ReferencedContainer = "container:Pods.xcodeproj">
