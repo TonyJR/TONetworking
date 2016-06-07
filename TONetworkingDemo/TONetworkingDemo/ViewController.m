@@ -48,6 +48,8 @@ typedef enum : NSUInteger {
 
 @implementation ViewController
 
+#pragma mark - life cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -55,6 +57,7 @@ typedef enum : NSUInteger {
     [self.menuTable registerClass:[UITableViewCell class] forCellReuseIdentifier:kCellIdentifier];
     [self.menuTable registerClass:[UITableViewCell class] forCellReuseIdentifier:kNextPageIdentifier];
 
+    
 }
 
 
