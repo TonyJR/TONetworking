@@ -24,7 +24,7 @@ typedef enum : NSUInteger {
 
 #define kCellIdentifier         @"menuCell"
 #define kNextPageIdentifier     @"nextPage"
-#define kAPIKey                 @"11c512b272925b6c765faf23d3472a13"
+#define kAPIKey                 @"9d458d847ab05251c0f39dc0da6306ad"
 
 
 @interface ViewController () <UISearchBarDelegate,UITableViewDataSource,UITableViewDelegate>{
@@ -57,7 +57,7 @@ typedef enum : NSUInteger {
     [self.menuTable registerClass:[UITableViewCell class] forCellReuseIdentifier:kCellIdentifier];
     [self.menuTable registerClass:[UITableViewCell class] forCellReuseIdentifier:kNextPageIdentifier];
 
-    
+    self.menuTable.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
 }
 
 
@@ -87,27 +87,10 @@ typedef enum : NSUInteger {
         result = [tableView dequeueReusableCellWithIdentifier:kNextPageIdentifier forIndexPath:indexPath];
         
         result.textLabel.textAlignment = NSTextAlignmentCenter;
-        switch (_currentStatus) {
-            case ListStatusError:
-                result.textLabel.text = errorReason;
-                break;
-            
-            case ListStatusLastPage:
-                result.textLabel.text = @"没有更多内容了";
-                break;
-            case ListStatusNomarl:
-                [self searchNextPage];
-                result.textLabel.text = @"";
-                break;
-            case ListStatusLoading:
-            case ListStatusNextPageLoading:
-                result.textLabel.text = @"努力加载中...";
-                break;
-            case ListStatusNoResult:
-                result.textLabel.text = @"╮(╯_╰)╭没找到你要的东西哦~";
-                break;
-            default:
-                break;
+        result.textLabel.text = [self getTextByStatus:_currentStatus];
+        
+        if (_currentStatus == ListStatusNomarl) {
+            [self searchNextPage];
         }
     }
     
@@ -151,6 +134,15 @@ typedef enum : NSUInteger {
 
 //搜索
 - (void)search:(NSString *)txt{
+    //空内容不搜索
+    if (txt.length == 0) {
+        //清空列表
+        [self.menuDataList removeAllObjects];
+        [self.menuTable reloadData];
+        self.param = nil;
+        return;
+    }
+    
     //结束翻页动作
     [[TONetwork sharedNetwork] stopTaskByKey:[self nextPageKey]];
     
@@ -262,6 +254,32 @@ typedef enum : NSUInteger {
 }
 
 
+- (NSString *)getTextByStatus:(ListStatus)currentStatus{
+    NSString * result;
+    switch (currentStatus) {
+        case ListStatusError:
+            result = errorReason;
+            break;
+            
+        case ListStatusLastPage:
+            result = @"没有更多内容了";
+            break;
+        case ListStatusNomarl:
+            result = @"";
+            break;
+        case ListStatusLoading:
+        case ListStatusNextPageLoading:
+            result = @"努力加载中...";
+            break;
+        case ListStatusNoResult:
+            result = @"╮(╯_╰)╭没找到你要的东西哦~";
+            break;
+        default:
+            break;
+    }
+    return result;
+}
+
 #pragma mark - getter & setter
 - (NSMutableArray *)menuDataList{
     if (!_menuDataList) {
@@ -273,6 +291,15 @@ typedef enum : NSUInteger {
 
 - (void)setCurrentStatus:(ListStatus)currentStatus{
     _currentStatus = currentStatus;
-//    [self.menuTable reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
+    
+    NSArray<NSIndexPath *> *visibleRows = [self.menuTable indexPathsForVisibleRows];
+    
+    for (NSIndexPath * indexPath in visibleRows) {
+        if (indexPath.section == 1) {
+            UITableViewCell * cell = [self.menuTable cellForRowAtIndexPath:indexPath];
+            cell.textLabel.text = [self getTextByStatus:currentStatus];
+        }
+    }
+
 }
 @end
