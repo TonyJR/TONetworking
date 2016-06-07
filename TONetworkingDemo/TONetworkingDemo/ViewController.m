@@ -129,7 +129,7 @@ typedef enum : NSUInteger {
     self.loadingDispose = [[[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         [subscriber sendCompleted];
         return nil;
-    }] delay:0.1] //延时一秒
+    }] delay:0.2] //延迟信号
                            subscribeCompleted:^{
                                @strongify(self);
                                [self search:searchText];
