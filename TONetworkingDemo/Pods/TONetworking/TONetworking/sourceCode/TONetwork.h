@@ -61,13 +61,17 @@ typedef enum TONetStatus{
 -(NSString *)taskOnQueue:(TOTask *)task;
 
 
+//获取任务
+-(TOTask *)taskByKey:(NSString *)taskKey;
+//获取任务
+-(TOTask *)taskById:(NSString *)taskId;
 
 //停止所有加载
 -(void)stopAllTask;
 //停止特定加载
--(void)stopTaskById:(NSString*)taskId;
+-(void)stopTaskById:(NSString *)taskId;
 //停止特定加载
--(void)stopTaskByKey:(NSString*)taskKey;
+-(void)stopTaskByKey:(NSString *)taskKey;
 //暂停加载队列
 -(void)pauseQueue;
 //恢复加载队列

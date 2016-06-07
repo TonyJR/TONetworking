@@ -67,18 +67,21 @@
             
             if (errorCode != 0) {
                 
-                
-                UIAlertController * alertController = [UIAlertController alertControllerWithTitle: @"提示"  message:result[@"reason"] preferredStyle:UIAlertControllerStyleAlert];
-                
-                [alertController addAction:[UIAlertAction actionWithTitle:@"好的"  style: UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                if (task.needTip) {
+                    UIAlertController * alertController = [UIAlertController alertControllerWithTitle: @"提示"  message:result[@"reason"] preferredStyle:UIAlertControllerStyleAlert];
                     
+                    [alertController addAction:[UIAlertAction actionWithTitle:@"好的"  style: UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                        
+                        
+                    }]];
+                    UIViewController * root = [UIApplication sharedApplication].keyWindow.rootViewController;
                     
-                }]];
+                    [root presentViewController:alertController animated:YES completion:nil];
+                }
                 
                 
-                UIViewController * root = [UIApplication sharedApplication].keyWindow.rootViewController;
                 
-                [root presentViewController:alertController animated:YES completion:nil];
+                
                 
                 return NO;
             }else{
