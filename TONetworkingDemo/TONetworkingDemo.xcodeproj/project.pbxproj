@@ -8,10 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		E742CAD6F3CB939B2A324993 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F69B1BE23454B86DC10ED57 /* libPods.a */; };
-		EA56E6111D40800000F979AE /* TOHTTPRequestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EA56E6091D40800000F979AE /* TOHTTPRequestHelper.m */; };
-		EA56E6121D40800000F979AE /* TONetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = EA56E60C1D40800000F979AE /* TONetwork.m */; };
-		EA56E6131D40800000F979AE /* TORequestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EA56E60E1D40800000F979AE /* TORequestHelper.m */; };
-		EA56E6141D40800000F979AE /* TOTask.m in Sources */ = {isa = PBXBuildFile; fileRef = EA56E6101D40800000F979AE /* TOTask.m */; };
+		EA56E6261D40ACFC00F979AE /* TOHTTPRequestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EA56E61F1D40ACFC00F979AE /* TOHTTPRequestHelper.m */; };
+		EA56E6271D40ACFC00F979AE /* TONetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = EA56E6211D40ACFC00F979AE /* TONetwork.m */; };
+		EA56E6281D40ACFC00F979AE /* TOTask.m in Sources */ = {isa = PBXBuildFile; fileRef = EA56E6231D40ACFC00F979AE /* TOTask.m */; };
 		EA61FDB41D0550E100BF48EA /* TipManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA61FDB31D0550E100BF48EA /* TipManager.m */; };
 		EA61FDB91D05586800BF48EA /* TONetwork+TaskLifeCycle.m in Sources */ = {isa = PBXBuildFile; fileRef = EA61FDB81D05586800BF48EA /* TONetwork+TaskLifeCycle.m */; };
 		EAD583D61D05137100F76581 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD583D51D05137100F76581 /* main.m */; };
@@ -37,16 +36,14 @@
 		9C1DBBDD4E10F28D93B6723A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		9F69B1BE23454B86DC10ED57 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC3B2FF8785129DCB2A7763A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		EA56E6061D40800000F979AE /* TOTaskConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTaskConfig.h; sourceTree = "<group>"; };
-		EA56E6081D40800000F979AE /* TOHTTPRequestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOHTTPRequestHelper.h; sourceTree = "<group>"; };
-		EA56E6091D40800000F979AE /* TOHTTPRequestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOHTTPRequestHelper.m; sourceTree = "<group>"; };
-		EA56E60A1D40800000F979AE /* TOTaskHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTaskHelper.h; sourceTree = "<group>"; };
-		EA56E60B1D40800000F979AE /* TONetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TONetwork.h; sourceTree = "<group>"; };
-		EA56E60C1D40800000F979AE /* TONetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TONetwork.m; sourceTree = "<group>"; };
-		EA56E60D1D40800000F979AE /* TORequestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TORequestHelper.h; sourceTree = "<group>"; };
-		EA56E60E1D40800000F979AE /* TORequestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TORequestHelper.m; sourceTree = "<group>"; };
-		EA56E60F1D40800000F979AE /* TOTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTask.h; sourceTree = "<group>"; };
-		EA56E6101D40800000F979AE /* TOTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTask.m; sourceTree = "<group>"; };
+		EA56E61E1D40ACFC00F979AE /* TOHTTPRequestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOHTTPRequestHelper.h; sourceTree = "<group>"; };
+		EA56E61F1D40ACFC00F979AE /* TOHTTPRequestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOHTTPRequestHelper.m; sourceTree = "<group>"; };
+		EA56E6201D40ACFC00F979AE /* TONetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TONetwork.h; sourceTree = "<group>"; };
+		EA56E6211D40ACFC00F979AE /* TONetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TONetwork.m; sourceTree = "<group>"; };
+		EA56E6221D40ACFC00F979AE /* TOTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTask.h; sourceTree = "<group>"; };
+		EA56E6231D40ACFC00F979AE /* TOTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTask.m; sourceTree = "<group>"; };
+		EA56E6241D40ACFC00F979AE /* TOTaskConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTaskConfig.h; sourceTree = "<group>"; };
+		EA56E6251D40ACFC00F979AE /* TOTaskHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTaskHelper.h; sourceTree = "<group>"; };
 		EA61FDB21D0550E100BF48EA /* TipManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipManager.h; sourceTree = "<group>"; };
 		EA61FDB31D0550E100BF48EA /* TipManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipManager.m; sourceTree = "<group>"; };
 		EA61FDB81D05586800BF48EA /* TONetwork+TaskLifeCycle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TONetwork+TaskLifeCycle.m"; sourceTree = "<group>"; };
@@ -102,38 +99,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		EA56E6041D40800000F979AE /* sourceCode */ = {
+		EA56E61D1D40ACFC00F979AE /* sourceCode */ = {
 			isa = PBXGroup;
 			children = (
-				EA56E6051D40800000F979AE /* config */,
-				EA56E6071D40800000F979AE /* plug-in  */,
-				EA56E60B1D40800000F979AE /* TONetwork.h */,
-				EA56E60C1D40800000F979AE /* TONetwork.m */,
-				EA56E60D1D40800000F979AE /* TORequestHelper.h */,
-				EA56E60E1D40800000F979AE /* TORequestHelper.m */,
-				EA56E60F1D40800000F979AE /* TOTask.h */,
-				EA56E6101D40800000F979AE /* TOTask.m */,
+				EA56E61E1D40ACFC00F979AE /* TOHTTPRequestHelper.h */,
+				EA56E61F1D40ACFC00F979AE /* TOHTTPRequestHelper.m */,
+				EA56E6201D40ACFC00F979AE /* TONetwork.h */,
+				EA56E6211D40ACFC00F979AE /* TONetwork.m */,
+				EA56E6221D40ACFC00F979AE /* TOTask.h */,
+				EA56E6231D40ACFC00F979AE /* TOTask.m */,
+				EA56E6241D40ACFC00F979AE /* TOTaskConfig.h */,
+				EA56E6251D40ACFC00F979AE /* TOTaskHelper.h */,
 			);
 			name = sourceCode;
 			path = ../../TONetworking/sourceCode;
-			sourceTree = "<group>";
-		};
-		EA56E6051D40800000F979AE /* config */ = {
-			isa = PBXGroup;
-			children = (
-				EA56E6061D40800000F979AE /* TOTaskConfig.h */,
-			);
-			path = config;
-			sourceTree = "<group>";
-		};
-		EA56E6071D40800000F979AE /* plug-in  */ = {
-			isa = PBXGroup;
-			children = (
-				EA56E6081D40800000F979AE /* TOHTTPRequestHelper.h */,
-				EA56E6091D40800000F979AE /* TOHTTPRequestHelper.m */,
-				EA56E60A1D40800000F979AE /* TOTaskHelper.h */,
-			);
-			path = "plug-in ";
 			sourceTree = "<group>";
 		};
 		EAD583C81D05137100F76581 = {
@@ -159,7 +138,7 @@
 		EAD583D31D05137100F76581 /* TONetworkingDemo */ = {
 			isa = PBXGroup;
 			children = (
-				EA56E6041D40800000F979AE /* sourceCode */,
+				EA56E61D1D40ACFC00F979AE /* sourceCode */,
 				EA61FDB81D05586800BF48EA /* TONetwork+TaskLifeCycle.m */,
 				EA61FDB21D0550E100BF48EA /* TipManager.h */,
 				EA61FDB31D0550E100BF48EA /* TipManager.m */,
@@ -328,14 +307,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA56E6131D40800000F979AE /* TORequestHelper.m in Sources */,
 				EAD583DC1D05137100F76581 /* ViewController.m in Sources */,
-				EA56E6121D40800000F979AE /* TONetwork.m in Sources */,
+				EA56E6281D40ACFC00F979AE /* TOTask.m in Sources */,
+				EA56E6271D40ACFC00F979AE /* TONetwork.m in Sources */,
 				EAD583D91D05137100F76581 /* AppDelegate.m in Sources */,
 				EAD583D61D05137100F76581 /* main.m in Sources */,
 				EA61FDB91D05586800BF48EA /* TONetwork+TaskLifeCycle.m in Sources */,
-				EA56E6111D40800000F979AE /* TOHTTPRequestHelper.m in Sources */,
-				EA56E6141D40800000F979AE /* TOTask.m in Sources */,
+				EA56E6261D40ACFC00F979AE /* TOHTTPRequestHelper.m in Sources */,
 				EA61FDB41D0550E100BF48EA /* TipManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

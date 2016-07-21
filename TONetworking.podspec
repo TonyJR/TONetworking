@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = "TONetworking"
-s.version          = "1.0.9"
+s.version          = "1.1.0"
 s.summary          = "Make HTTP request works as a task. "
 s.description      = <<-DESC
 TONetworking will help you to manage your HTTP request.
@@ -11,8 +11,9 @@ s.license          = { :type => 'MIT', :file => 'LICENSE' }
 s.author           = { "Tony.JR" => "show_3@163.com" }
 s.source           = { :git => "https://github.com/TonyJR/TONetworking.git", :tag => "#{s.version}" }
 s.platform         = :ios, '7.0'           
-s.requires_arc     = true               
-s.source_files     = 'TONetworking/sourceCode/*.{h,m}'
+s.requires_arc     = true  
+             
+s.source_files     = 'TONetworking/sourceCode/*.{h,m}','TONetworking/sourceCode/config/*.{h,m}','TONetworking/sourceCode/plug-in/*.{h,m}'
 
 
 s.frameworks       = 'Foundation'
