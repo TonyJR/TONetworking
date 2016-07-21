@@ -3,7 +3,6 @@ platform :ios, '7.0'
 
 pod 'AFNetworking'
 pod 'Reachability'
-pod 'TONetworking'
 pod 'MBProgressHUD'
 pod 'ReactiveCocoa'
 pod 'TouchJSON'

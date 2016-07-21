@@ -8,7 +8,7 @@
 
 #import <TouchJSON/CJSONDeserializer.h>
 #import "AppDelegate.h"
-#import <TONetworking/TONetwork.h>
+#import "TONetwork.h"
 #import "TipManager.h"
 
 @implementation TONetwork (TaskLifeCycle)

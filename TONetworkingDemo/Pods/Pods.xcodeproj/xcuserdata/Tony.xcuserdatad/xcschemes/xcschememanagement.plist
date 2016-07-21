@@ -29,11 +29,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>TONetworking.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>TouchJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,17 +37,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2E17B1475D99B52352346DC9FC5CFE0D</key>
+		<key>1893DE70459B9C5430E1E53597BF9817</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>412079A13756DC02ACEA29342E0B0AD1</key>
+		<key>27823E76ABC252DC0A1FC662E6F3E880</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5A7BB20ED199C17C190363451433041D</key>
+		<key>535BBCE136170883137B8334C95DCDC1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,17 +57,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A8C1CDA157C840ECD90386E1B132E9D7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>AA260725DBACE6318B71A79C6FB8DE7F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>BBE70AB8FA94794405AA9D6D4366C375</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DE4A7919428D7590C6092FDCABA35D4B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

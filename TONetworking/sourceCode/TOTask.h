@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TOTaskHelper.h"
 
 #define TaskBlock void (^)(TOTask * task)
 
@@ -73,6 +74,10 @@ typedef enum TOTaskStatus{
 //自定义属性
 @property (nonatomic, strong) id responseInfo;
 
+//任务加载器
+@property (nonatomic, strong) Class<TOTaskHelper> taskHelper;
+//任务超时时间
+@property (nonatomic, assign) NSTimeInterval timeoutInterval;
 
 
 -(id)init;

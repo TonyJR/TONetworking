@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "TipManager.h"
-#import <TONetworking/TONetwork.h>
+#import "TONetwork.h"
 
 @interface AppDelegate ()
 

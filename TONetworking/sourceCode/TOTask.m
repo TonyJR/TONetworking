@@ -2,12 +2,14 @@
 //  TOTask.m
 //  TOFramework
 //
-//  Created by Tony on 16/2/19.
+//  Created by TonyJR on 16/2/19.
 //  Copyright © 2016年 Tony. All rights reserved.
 //
 
 #import "TOTask.h"
 #import "TONetwork.h"
+#import "TOTaskConfig.h"
+#import "TOHTTPRequestHelper.h"
 
 @interface TOTask ()
 
@@ -23,15 +25,21 @@
 
 static int taskIndex = 10000;
 
++ (void)initialize{
+    if (!g_default_task_helper) {
+        g_default_task_helper = [TOHTTPRequestHelper class];
+    }
+}
+
 /**
  *  获取下一个ID
  *
  *  @return 自动taskID增长
  */
-+(NSString *)next{
++ (NSString *)next{
     return [NSString stringWithFormat:@"task_%d",taskIndex++];
 }
--(void)setStatus:(TOTaskStatus)status{
+- (void)setStatus:(TOTaskStatus)status{
     if (status == TOTaskCancel) {
         if (!self.isLoading) {
             status = TOTaskWaitting;
@@ -40,11 +48,11 @@ static int taskIndex = 10000;
     _status = status;
 }
 
--(void)setProgress:(float)progress{
+- (void)setProgress:(float)progress{
     _progress = progress;
 }
 
--(id)init{
+- (id)init{
     if (self = [super init]) {
         _path = nil;
         _taskKey = nil;
@@ -68,20 +76,22 @@ static int taskIndex = 10000;
         _needTip = YES;
         _errorBlock = nil;
         _successBlock = nil;
+        
+        _timeoutInterval = g_default_timeout;
     }
     
     return self;
 }
 
--(id)initWithPath:(NSString *)path parames:(NSDictionary *)parames{
+- (id)initWithPath:(NSString *)path parames:(NSDictionary *)parames{
     return [self initWithPath:path parames:parames owner:nil taskOver:nil];
 }
 
--(id)initWithPath:(NSString *)path parames:(NSDictionary *)parames owner:(id)owner taskOver:(SEL)taskOverHandler{
+- (id)initWithPath:(NSString *)path parames:(NSDictionary *)parames owner:(id)owner taskOver:(SEL)taskOverHandler{
     return [self initWithPath:path parames:parames owner:owner taskOver:taskOverHandler taskError:nil];
 }
 
--(id)initWithPath:(NSString *)path parames:(NSDictionary *)parames owner:(id)owner taskOver:(SEL)taskOverHandler taskError:(SEL)taskErrorHandler{
+- (id)initWithPath:(NSString *)path parames:(NSDictionary *)parames owner:(id)owner taskOver:(SEL)taskOverHandler taskError:(SEL)taskErrorHandler{
     self = [self init];
     if (self) {
         _path = path;
@@ -93,14 +103,14 @@ static int taskIndex = 10000;
     return self;
 }
 
--(id)initWithPath:(NSString*)path parames:(NSDictionary *)parames taskOver:(TaskBlock) taskOverHandler{
+- (id)initWithPath:(NSString*)path parames:(NSDictionary *)parames taskOver:(TaskBlock) taskOverHandler{
     return [self initWithPath:path parames:parames taskOver:taskOverHandler taskError:nil];
     
 }
 
--(id)initWithPath:(NSString*)path parames:(NSDictionary *)parames taskOver:(TaskBlock) taskOverHandler taskError:(TaskBlock)taskErrorHandler{
+- (id)initWithPath:(NSString*)path parames:(NSDictionary *)parames taskOver:(TaskBlock) taskOverHandler taskError:(TaskBlock)taskErrorHandler{
     
-
+    
     self = [self initWithPath:path parames:parames];
     self.successBlock = taskOverHandler;
     self.errorBlock = taskErrorHandler;
@@ -109,7 +119,7 @@ static int taskIndex = 10000;
 }
 
 
--(void)addParam:(NSObject *)value forKey:(NSString *)key{
+- (void)addParam:(NSObject *)value forKey:(NSString *)key{
     if (!_parames) {
         _parames = [NSMutableDictionary dictionary];
     }
@@ -122,18 +132,18 @@ static int taskIndex = 10000;
     
 }
 
--(void)startOnQueue{
+- (void)startOnQueue{
     [[TONetwork sharedNetwork] taskOnQueue:self];
 }
--(void)startAtOnce{
+- (void)startAtOnce{
     [[TONetwork sharedNetwork] taskAtOnce:self];
 }
--(void)startThread{
+- (void)startThread{
     
     [[TONetwork sharedNetwork] taskThread:self];
 }
 
--(instancetype)clone{
+- (instancetype)clone{
     TOTask * result = [[[self class] alloc] initWithPath:self.path parames:self.parames owner:self.owner taskOver:self.taskOverHandler taskError:self.taskErrorHandler];
     
     result.taskKey = self.taskKey;
@@ -146,8 +156,19 @@ static int taskIndex = 10000;
     
     result.errorBlock = self.errorBlock;
     result.successBlock = self.successBlock;
-
+    
     return result;
 }
+
+#pragma mark - setter & getter
+- (Class<TOTaskHelper>)taskHelper{
+    if (!_taskHelper) {
+        return g_default_task_helper;
+    }else{
+        return _taskHelper;
+    }
+}
+
+
 
 @end

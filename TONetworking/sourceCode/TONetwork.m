@@ -10,7 +10,7 @@
 #import "Reachability.h"
 #import <Foundation/Foundation.h>
 #import "TORequestHelper.h"
-
+#import <objc/runtime.h>
 
 #define TONETWORK_CACHE @"__toNetworkCache"
 
@@ -382,14 +382,21 @@ static TONetwork * _sharedNetwork = nil;
 
 //发送请求
 -(void)requestWithTask:(TOTask *) _task{
-    [self performSelectorOnMainThread:@selector(beforeTask:) withObject:_task waitUntilDone:YES];
+    if (class_getClassMethod(_task.taskHelper, @selector(beforeTask:))) {
+        [_task.taskHelper beforeTask:_task];
+    }else{
+        [self performSelectorOnMainThread:@selector(beforeTask:) withObject:_task waitUntilDone:YES];
+    }
+    
+    
+    
     _task.status = TOTaskLoading;
     __block TOTask * task_block = _task;
     
     task_block.progress = 0;
     
     
-    [TORequestHelper startTask:task_block progress:^(NSProgress * progress) {
+    [_task.taskHelper startTask:task_block progress:^(NSProgress * progress) {
         
         task_block.progress = progress.completedUnitCount * 100.0f / progress.totalUnitCount;
         
@@ -417,9 +424,11 @@ static TONetwork * _sharedNetwork = nil;
                 [self requestEnd:task_main_block];
                 
                 
-                 [self performSelectorOnMainThread:@selector(requestFinished:) withObject:task_block waitUntilDone:YES];
+                [self performSelectorOnMainThread:@selector(requestFinished:) withObject:task_block waitUntilDone:YES];
             }
-           
+            
+            
+            
         });
         
         
@@ -527,31 +536,54 @@ static TONetwork * _sharedNetwork = nil;
 
     
     if (task) {
-        
-        if ([self afterTask:task]) {
-            if (task.owner && task.taskOverHandler) {
+        if (class_getClassMethod(task.taskHelper, @selector(afterTask:))){
+            if ([task.taskHelper afterTask:task]) {
+                if (task.owner && task.taskOverHandler) {
+                    
+                    IMP imp = [task.owner methodForSelector:task.taskOverHandler];
+                    void (*func)(id, SEL, TOTask *) = (void *)imp;
+                    func(task.owner, task.taskOverHandler, task);
+                }
+                if (task.successBlock) {
+                    task.successBlock(task);
+                }
                 
-                IMP imp = [task.owner methodForSelector:task.taskOverHandler];
-                void (*func)(id, SEL, TOTask *) = (void *)imp;
-                func(task.owner, task.taskOverHandler, task);
+            }else {
+                if(task.owner && task.taskErrorHandler){
+                    IMP imp = [task.owner methodForSelector:task.taskErrorHandler];
+                    void (*func)(id, SEL, TOTask *) = (void *)imp;
+                    func(task.owner, task.taskErrorHandler, task);
+                }
+                
+                if (task.errorBlock) {
+                    task.errorBlock(task);
+                }
             }
-            if (task.successBlock) {
-                task.successBlock(task);
-            }
-            
-        }else {
-            if(task.owner && task.taskErrorHandler){
-                IMP imp = [task.owner methodForSelector:task.taskErrorHandler];
-                void (*func)(id, SEL, TOTask *) = (void *)imp;
-                func(task.owner, task.taskErrorHandler, task);
-            }
-            
-            if (task.errorBlock) {
-                task.errorBlock(task);
+        }else{
+            if ([self afterTask:task]) {
+                if (task.owner && task.taskOverHandler) {
+                    
+                    IMP imp = [task.owner methodForSelector:task.taskOverHandler];
+                    void (*func)(id, SEL, TOTask *) = (void *)imp;
+                    func(task.owner, task.taskOverHandler, task);
+                }
+                if (task.successBlock) {
+                    task.successBlock(task);
+                }
+                
+            }else {
+                if(task.owner && task.taskErrorHandler){
+                    IMP imp = [task.owner methodForSelector:task.taskErrorHandler];
+                    void (*func)(id, SEL, TOTask *) = (void *)imp;
+                    func(task.owner, task.taskErrorHandler, task);
+                }
+                
+                if (task.errorBlock) {
+                    task.errorBlock(task);
+                }
             }
         }
     }
-    
 }
 
 
