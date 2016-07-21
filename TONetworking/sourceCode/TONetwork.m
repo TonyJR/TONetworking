@@ -9,7 +9,7 @@
 #import "TONetwork.h"
 #import "Reachability.h"
 #import <Foundation/Foundation.h>
-#import "TORequestHelper.h"
+#import "TOHTTPRequestHelper.h"
 #import <objc/runtime.h>
 
 #define TONETWORK_CACHE @"__toNetworkCache"
