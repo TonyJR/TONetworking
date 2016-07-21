@@ -13,7 +13,7 @@ s.source           = { :git => "https://github.com/TonyJR/TONetworking.git", :ta
 s.platform         = :ios, '7.0'           
 s.requires_arc     = true  
              
-s.source_files     = 'TONetworking/sourceCode/*.{h,m}','TONetworking/sourceCode/config/*.{h,m}','TONetworking/sourceCode/plug-in/*.{h,m}'
+s.source_files     = 'TONetworking/sourceCode/*.{h,m}'
 
 
 s.frameworks       = 'Foundation'
