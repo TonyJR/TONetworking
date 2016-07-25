@@ -18,7 +18,7 @@
         complete:(nullable void (^)(NSURLSessionDataTask * _Nullable, NSData * _Nullable,NSError * _Nullable))completeHandler{
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
+
     
     // 设置请求格式
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
@@ -42,23 +42,30 @@
     }
     
     
-    NSMutableURLRequest * request = [manager.requestSerializer multipartFormRequestWithMethod:task.method URLString:[[NSURL URLWithString:task.path relativeToURL:manager.baseURL] absoluteString] parameters:dic constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-        NSArray * _keys = task.parames.allKeys;
-        
-        for (NSString * key in _keys) {
-            
-            NSObject * item = (NSObject *)(task.parames[key]);
-            if ([item isKindOfClass:[NSURL class]]) {
-                [formData appendPartWithFileURL:(NSURL *)item name:key fileName:[NSString stringWithFormat:@"%@.file",key] mimeType:@"multipart/mixed" error:nil];
-                
-            }else if ([item isKindOfClass:[NSData class]]) {
-                [formData appendPartWithFileData:(NSData *)item name:key fileName:[NSString stringWithFormat:@"%@.file",key] mimeType:@"multipart/mixed"];
-            }else if([item isKindOfClass:[UIImage class]]){
-                [formData appendPartWithFileData:UIImageJPEGRepresentation((UIImage *)item,0.8) name:key fileName:[NSString stringWithFormat:@"%@.jpg",key] mimeType:@"multipart/mixed"];
-            }
-        }
-    } error:&error];
+    NSMutableURLRequest * request;
     
+    if ([task.method isEqualToString:@"POST"]) {
+        request = [manager.requestSerializer multipartFormRequestWithMethod:task.method URLString:[[NSURL URLWithString:task.path relativeToURL:manager.baseURL] absoluteString] parameters:dic constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+            NSArray * _keys = task.parames.allKeys;
+            
+            for (NSString * key in _keys) {
+                
+                NSObject * item = (NSObject *)(task.parames[key]);
+                if ([item isKindOfClass:[NSURL class]]) {
+                    [formData appendPartWithFileURL:(NSURL *)item name:key fileName:[NSString stringWithFormat:@"%@.file",key] mimeType:@"multipart/mixed" error:nil];
+                    
+                }else if ([item isKindOfClass:[NSData class]]) {
+                    [formData appendPartWithFileData:(NSData *)item name:key fileName:[NSString stringWithFormat:@"%@.file",key] mimeType:@"multipart/mixed"];
+                }else if([item isKindOfClass:[UIImage class]]){
+                    [formData appendPartWithFileData:UIImageJPEGRepresentation((UIImage *)item,0.8) name:key fileName:[NSString stringWithFormat:@"%@.jpg",key] mimeType:@"multipart/mixed"];
+                }
+            }
+        } error:&error];
+    }else{
+        request = [manager.requestSerializer requestWithMethod:task.method URLString:[[NSURL URLWithString:task.path relativeToURL:manager.baseURL] absoluteString] parameters:task.parames error:&error];
+    }
+    
+    request.timeoutInterval = task.timeoutInterval;
     
     if (error) {
         if (completeHandler) {

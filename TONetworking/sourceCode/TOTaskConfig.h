@@ -15,6 +15,6 @@
 //TOTask中的默认加载工具类
 static Class<TOTaskHelper>  g_default_task_helper;
 //任务超时时间
-static NSTimeInterval       g_default_timeout;
+static NSTimeInterval       g_default_timeout = 10;
 
 #endif /* TOTaskConfig_h */
