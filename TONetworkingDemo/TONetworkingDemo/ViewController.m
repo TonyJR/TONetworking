@@ -58,6 +58,15 @@ typedef enum : NSUInteger {
     [self.menuTable registerClass:[UITableViewCell class] forCellReuseIdentifier:kNextPageIdentifier];
 
     self.menuTable.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+    
+    TOTask *task = [[TOTask alloc] initWithPath:@"http://key.sanseccloud.com:9080/jeeplus/app.json" parames:nil taskOver:^(TOTask *task) {
+        
+    } taskError:^(TOTask *task) {
+        
+    }];
+    task.method = @"GET";
+    [task startAtOnce];
+    
 }
 
 

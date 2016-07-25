@@ -11,19 +11,50 @@
 #import "AFNetworking.h"
 
 
-
 @implementation TOHTTPRequestHelper
+static AFHTTPSessionManager *_manager;
++ (AFHTTPSessionManager *)sessionManager{
+    if (!_manager) {
+        _manager = [AFHTTPSessionManager manager];
+        
+        
+        // 设置请求格式
+        _manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+        // 设置返回格式
+        _manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    }
+    return _manager;
+}
 
-+(void)startTask:(nonnull TOTask *)task progress:(nullable void (^)(NSProgress * _Nonnull))progressHandler
++(void)startTask:(nonnull TOTask *)task
+        progress:(nullable void (^)(NSProgress * _Nonnull))progressHandler
         complete:(nullable void (^)(NSURLSessionDataTask * _Nullable, NSData * _Nullable,NSError * _Nullable))completeHandler{
     
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-
+    if (![task.method isEqualToString:@"GET"]) {
+        task.method = @"POST";
+    }
     
-    // 设置请求格式
-    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-    // 设置返回格式
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    
+    if ([task.method isEqualToString:@"POST"]) {
+        
+        [self doPost:task
+            progress:progressHandler
+            complete:completeHandler];
+    }else{
+        [self doGet:task
+            progress:progressHandler
+            complete:completeHandler];
+    }
+    
+    
+}
+
++ (void)doPost:(nonnull TOTask *)task
+      progress:(nullable void (^)(NSProgress * _Nonnull))progressHandler
+      complete:(nullable void (^)(NSURLSessionDataTask * _Nullable, NSData * _Nullable,NSError * _Nullable))completeHandler{
+    
+    AFHTTPSessionManager *manager = [self sessionManager];
     
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     NSArray * keys = task.parames.allKeys;
@@ -37,33 +68,28 @@
     }
     
     NSError * error;
-    if (![task.method isEqualToString:@"GET"]) {
-        task.method = @"POST";
-    }
+    
     
     
     NSMutableURLRequest * request;
     
-    if ([task.method isEqualToString:@"POST"]) {
-        request = [manager.requestSerializer multipartFormRequestWithMethod:task.method URLString:[[NSURL URLWithString:task.path relativeToURL:manager.baseURL] absoluteString] parameters:dic constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-            NSArray * _keys = task.parames.allKeys;
+    request = [manager.requestSerializer multipartFormRequestWithMethod:task.method URLString:[[NSURL URLWithString:task.path relativeToURL:manager.baseURL] absoluteString] parameters:dic constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        NSArray * _keys = task.parames.allKeys;
+        
+        for (NSString * key in _keys) {
             
-            for (NSString * key in _keys) {
+            NSObject * item = (NSObject *)(task.parames[key]);
+            if ([item isKindOfClass:[NSURL class]]) {
+                [formData appendPartWithFileURL:(NSURL *)item name:key fileName:[NSString stringWithFormat:@"%@.file",key] mimeType:@"multipart/mixed" error:nil];
                 
-                NSObject * item = (NSObject *)(task.parames[key]);
-                if ([item isKindOfClass:[NSURL class]]) {
-                    [formData appendPartWithFileURL:(NSURL *)item name:key fileName:[NSString stringWithFormat:@"%@.file",key] mimeType:@"multipart/mixed" error:nil];
-                    
-                }else if ([item isKindOfClass:[NSData class]]) {
-                    [formData appendPartWithFileData:(NSData *)item name:key fileName:[NSString stringWithFormat:@"%@.file",key] mimeType:@"multipart/mixed"];
-                }else if([item isKindOfClass:[UIImage class]]){
-                    [formData appendPartWithFileData:UIImageJPEGRepresentation((UIImage *)item,0.8) name:key fileName:[NSString stringWithFormat:@"%@.jpg",key] mimeType:@"multipart/mixed"];
-                }
+            }else if ([item isKindOfClass:[NSData class]]) {
+                [formData appendPartWithFileData:(NSData *)item name:key fileName:[NSString stringWithFormat:@"%@.file",key] mimeType:@"multipart/mixed"];
+            }else if([item isKindOfClass:[UIImage class]]){
+                [formData appendPartWithFileData:UIImageJPEGRepresentation((UIImage *)item,0.8) name:key fileName:[NSString stringWithFormat:@"%@.jpg",key] mimeType:@"multipart/mixed"];
             }
-        } error:&error];
-    }else{
-        request = [manager.requestSerializer requestWithMethod:task.method URLString:[[NSURL URLWithString:task.path relativeToURL:manager.baseURL] absoluteString] parameters:task.parames error:&error];
-    }
+        }
+    } error:&error];
+    
     
     request.timeoutInterval = task.timeoutInterval;
     
@@ -87,8 +113,39 @@
     }];
     
     [sessionDataTask resume];
+}
+
++ (void)doGet:(nonnull TOTask *)task
+      progress:(nullable void (^)(NSProgress * _Nonnull))progressHandler
+      complete:(nullable void (^)(NSURLSessionDataTask * _Nullable, NSData * _Nullable,NSError * _Nullable))completeHandler{
     
+    AFHTTPSessionManager *manager = [self sessionManager];
+
     
+    [manager GET:task.path
+      parameters:task.parames
+        progress:progressHandler
+         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+             
+             __block NSURLSessionDataTask * sessionDataTask = task;
+             if(completeHandler){
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     completeHandler(sessionDataTask,responseObject, nil);
+                 });
+             }
+
+    }
+         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+             
+             __block NSURLSessionDataTask * sessionDataTask = task;
+
+             if(completeHandler){
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     completeHandler(sessionDataTask,nil, error);
+                 });
+             }
+
+    }];
 }
 
 @end
