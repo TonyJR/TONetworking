@@ -30,19 +30,19 @@ static AFHTTPSessionManager *_manager;
         progress:(nullable void (^)(NSProgress * _Nonnull))progressHandler
         complete:(nullable void (^)(NSURLSessionDataTask * _Nullable, NSData * _Nullable,NSError * _Nullable))completeHandler{
     
-    if (![task.method isEqualToString:@"GET"]) {
+    if ([task.method length] == 0) {
         task.method = @"POST";
     }
     
     
     
-    if ([task.method isEqualToString:@"POST"]) {
+    if ([task.method isEqualToString:@"GET"]) {
         
-        [self doPost:task
-            progress:progressHandler
-            complete:completeHandler];
-    }else{
         [self doGet:task
+           progress:progressHandler
+           complete:completeHandler];
+    }else{
+        [self doPost:task
             progress:progressHandler
             complete:completeHandler];
     }
@@ -116,11 +116,11 @@ static AFHTTPSessionManager *_manager;
 }
 
 + (void)doGet:(nonnull TOTask *)task
-      progress:(nullable void (^)(NSProgress * _Nonnull))progressHandler
-      complete:(nullable void (^)(NSURLSessionDataTask * _Nullable, NSData * _Nullable,NSError * _Nullable))completeHandler{
+     progress:(nullable void (^)(NSProgress * _Nonnull))progressHandler
+     complete:(nullable void (^)(NSURLSessionDataTask * _Nullable, NSData * _Nullable,NSError * _Nullable))completeHandler{
     
     AFHTTPSessionManager *manager = [self sessionManager];
-
+    
     
     [manager GET:task.path
       parameters:task.parames
@@ -133,19 +133,19 @@ static AFHTTPSessionManager *_manager;
                      completeHandler(sessionDataTask,responseObject, nil);
                  });
              }
-
-    }
+             
+         }
          failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
              
              __block NSURLSessionDataTask * sessionDataTask = task;
-
+             
              if(completeHandler){
                  dispatch_async(dispatch_get_main_queue(), ^{
                      completeHandler(sessionDataTask,nil, error);
                  });
              }
-
-    }];
+             
+         }];
 }
 
 @end
