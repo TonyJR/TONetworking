@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = "TONetworking"
-s.version          = "1.1.2"
+s.version          = "1.1.3"
 s.summary          = "Make HTTP request works as a task. "
 s.description      = <<-DESC
 TONetworking will help you to manage your HTTP request.

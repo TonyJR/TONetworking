@@ -9,7 +9,7 @@
 #import "TOHTTPRequestHelper.h"
 #import "TOTask.h"
 #import "AFNetworking.h"
-
+#import "TOTaskConfig.h"
 
 @implementation TOHTTPRequestHelper
 static AFHTTPSessionManager *_manager;
@@ -85,7 +85,7 @@ static AFHTTPSessionManager *_manager;
             }else if ([item isKindOfClass:[NSData class]]) {
                 [formData appendPartWithFileData:(NSData *)item name:key fileName:[NSString stringWithFormat:@"%@.file",key] mimeType:@"multipart/mixed"];
             }else if([item isKindOfClass:[UIImage class]]){
-                [formData appendPartWithFileData:UIImageJPEGRepresentation((UIImage *)item,0.8) name:key fileName:[NSString stringWithFormat:@"%@.jpg",key] mimeType:@"multipart/mixed"];
+                [formData appendPartWithFileData:UIImageJPEGRepresentation((UIImage *)item,g_image_compression_quality) name:key fileName:[NSString stringWithFormat:@"%@.jpg",key] mimeType:@"multipart/mixed"];
             }
         }
     } error:&error];

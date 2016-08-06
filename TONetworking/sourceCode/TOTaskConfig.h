@@ -16,5 +16,6 @@
 static Class<TOTaskHelper>  g_default_task_helper;
 //任务超时时间
 static NSTimeInterval       g_default_timeout = 10;
+static float                g_image_compression_quality = 1.0f;
 
 #endif /* TOTaskConfig_h */
