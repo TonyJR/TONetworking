@@ -41,8 +41,16 @@ static AFHTTPSessionManager *_manager;
         [self doGet:task
            progress:progressHandler
            complete:completeHandler];
-    }else{
+    }else if([task.method isEqualToString:@"POST"]){
         [self doPost:task
+            progress:progressHandler
+            complete:completeHandler];
+    }else if([task.method isEqualToString:@"DELETE"]){
+        [self doDelete:task
+            progress:progressHandler
+            complete:completeHandler];
+    }else if([task.method isEqualToString:@"PUT"]){
+        [self doPut:task
             progress:progressHandler
             complete:completeHandler];
     }
@@ -148,4 +156,59 @@ static AFHTTPSessionManager *_manager;
          }];
 }
 
++ (void)doPut:(nonnull TOTask *)task
+      progress:(nullable void (^)(NSProgress * _Nonnull))progressHandler
+      complete:(nullable void (^)(NSURLSessionDataTask * _Nullable, NSData * _Nullable,NSError * _Nullable))completeHandler{
+    
+    AFHTTPSessionManager *manager = [self sessionManager];
+    
+    [manager PUT:task.path
+      parameters:task.parames
+         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+             __block NSURLSessionDataTask * sessionDataTask = task;
+             if(completeHandler){
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     completeHandler(sessionDataTask,responseObject, nil);
+                 });
+             }
+         }
+         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+             __block NSURLSessionDataTask * sessionDataTask = task;
+             
+             if(completeHandler){
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     completeHandler(sessionDataTask,nil, error);
+                 });
+             }
+         }];
+    
+    
+}
+
++ (void)doDelete:(nonnull TOTask *)task
+      progress:(nullable void (^)(NSProgress * _Nonnull))progressHandler
+      complete:(nullable void (^)(NSURLSessionDataTask * _Nullable, NSData * _Nullable,NSError * _Nullable))completeHandler{
+    
+    AFHTTPSessionManager *manager = [self sessionManager];
+    
+    [manager DELETE:task.path
+         parameters:task.parames
+            success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                __block NSURLSessionDataTask * sessionDataTask = task;
+                if(completeHandler){
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        completeHandler(sessionDataTask,responseObject, nil);
+                    });
+                }
+            }
+            failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                __block NSURLSessionDataTask * sessionDataTask = task;
+                
+                if(completeHandler){
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        completeHandler(sessionDataTask,nil, error);
+                    });
+                }
+            }];
+}
 @end
