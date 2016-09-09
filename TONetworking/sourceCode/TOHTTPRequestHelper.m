@@ -9,6 +9,7 @@
 #import "TOHTTPRequestHelper.h"
 #import "TOTask.h"
 #import "AFNetworking.h"
+#import "AFURLRequestSerialization.h"
 #import "TOTaskConfig.h"
 
 @implementation TOHTTPRequestHelper
@@ -63,7 +64,11 @@ static AFHTTPSessionManager *_manager;
       complete:(nullable void (^)(NSURLSessionDataTask * _Nullable, NSData * _Nullable,NSError * _Nullable))completeHandler{
     
     AFHTTPSessionManager *manager = [self sessionManager];
-    
+    if (task.usingCache) {
+        [manager.requestSerializer setCachePolicy:NSURLRequestUseProtocolCachePolicy];
+    }else{
+        [manager.requestSerializer setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
+    }
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     NSArray * keys = task.parames.allKeys;
     
@@ -88,12 +93,12 @@ static AFHTTPSessionManager *_manager;
             
             NSObject * item = (NSObject *)(task.parames[key]);
             if ([item isKindOfClass:[NSURL class]]) {
-                [formData appendPartWithFileURL:(NSURL *)item name:key fileName:[NSString stringWithFormat:@"%@.file",key] mimeType:@"multipart/mixed" error:nil];
+                [formData appendPartWithFileURL:(NSURL *)item name:key fileName:[NSString stringWithFormat:@"%@.file",key] mimeType:task.mimeType error:nil];
                 
             }else if ([item isKindOfClass:[NSData class]]) {
-                [formData appendPartWithFileData:(NSData *)item name:key fileName:[NSString stringWithFormat:@"%@.file",key] mimeType:@"multipart/mixed"];
+                [formData appendPartWithFileData:(NSData *)item name:key fileName:[NSString stringWithFormat:@"%@.file",key] mimeType:task.mimeType];
             }else if([item isKindOfClass:[UIImage class]]){
-                [formData appendPartWithFileData:UIImageJPEGRepresentation((UIImage *)item,g_image_compression_quality) name:key fileName:[NSString stringWithFormat:@"%@.jpg",key] mimeType:@"multipart/mixed"];
+                [formData appendPartWithFileData:UIImageJPEGRepresentation((UIImage *)item,g_image_compression_quality) name:key fileName:[NSString stringWithFormat:@"%@.jpg",key] mimeType:task.mimeType];
             }
         }
     } error:&error];
@@ -127,9 +132,13 @@ static AFHTTPSessionManager *_manager;
      progress:(nullable void (^)(NSProgress * _Nonnull))progressHandler
      complete:(nullable void (^)(NSURLSessionDataTask * _Nullable, NSData * _Nullable,NSError * _Nullable))completeHandler{
     
+    
     AFHTTPSessionManager *manager = [self sessionManager];
-    
-    
+    if (task.usingCache) {
+        [manager.requestSerializer setCachePolicy:NSURLRequestUseProtocolCachePolicy];
+    }else{
+        [manager.requestSerializer setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
+    }
     [manager GET:task.path
       parameters:task.parames
         progress:progressHandler
@@ -161,7 +170,11 @@ static AFHTTPSessionManager *_manager;
       complete:(nullable void (^)(NSURLSessionDataTask * _Nullable, NSData * _Nullable,NSError * _Nullable))completeHandler{
     
     AFHTTPSessionManager *manager = [self sessionManager];
-    
+    if (task.usingCache) {
+        [manager.requestSerializer setCachePolicy:NSURLRequestUseProtocolCachePolicy];
+    }else{
+        [manager.requestSerializer setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
+    }
     [manager PUT:task.path
       parameters:task.parames
          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -190,7 +203,11 @@ static AFHTTPSessionManager *_manager;
       complete:(nullable void (^)(NSURLSessionDataTask * _Nullable, NSData * _Nullable,NSError * _Nullable))completeHandler{
     
     AFHTTPSessionManager *manager = [self sessionManager];
-    
+    if (task.usingCache) {
+        [manager.requestSerializer setCachePolicy:NSURLRequestUseProtocolCachePolicy];
+    }else{
+        [manager.requestSerializer setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
+    }
     [manager DELETE:task.path
          parameters:task.parames
             success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -211,4 +228,6 @@ static AFHTTPSessionManager *_manager;
                 }
             }];
 }
+
+
 @end

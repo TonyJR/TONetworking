@@ -42,7 +42,11 @@ typedef enum TOTaskStatus{
 //请求方式 POST/GET
 @property (nonatomic, strong ) NSString * method;
 
-@property (nonatomic, assign )  int     responseStatusCode;
+//mimeType
+@property (nonatomic, strong ) NSString * mimeType;
+
+//http状态码
+@property (nonatomic, assign )  int responseStatusCode;
 
 //请求参数
 @property (nonatomic, strong ,readonly) NSMutableDictionary * parames;

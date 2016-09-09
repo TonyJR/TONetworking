@@ -169,6 +169,12 @@ static int taskIndex = 10000;
     }
 }
 
-
+- (NSString *)mimeType{
+    if (!_mimeType) {
+        return g_mimeType;
+    }else{
+        return _mimeType;
+    }
+}
 
 @end
