@@ -12,6 +12,10 @@
 #import "AFURLRequestSerialization.h"
 #import "TOTaskConfig.h"
 
+@interface TOTask ()
+@property (nonatomic,strong) NSMutableDictionary *fileNames;
+@end
+
 @implementation TOHTTPRequestHelper
 static AFHTTPSessionManager *_manager;
 + (AFHTTPSessionManager *)sessionManager{
@@ -96,9 +100,34 @@ static AFHTTPSessionManager *_manager;
                 [formData appendPartWithFileURL:(NSURL *)item name:key fileName:[NSString stringWithFormat:@"%@.file",key] mimeType:task.mimeType error:nil];
                 
             }else if ([item isKindOfClass:[NSData class]]) {
-                [formData appendPartWithFileData:(NSData *)item name:key fileName:[NSString stringWithFormat:@"%@.file",key] mimeType:task.mimeType];
+                NSString *filename;
+                if (task.fileNames[key]) {
+                    filename = task.fileNames[key];
+                }else{
+                    filename = [NSString stringWithFormat:@"%@.file",key];
+                }
+                [formData appendPartWithFileData:(NSData *)item name:key fileName:filename mimeType:@"multipart/mixed"];
             }else if([item isKindOfClass:[UIImage class]]){
-                [formData appendPartWithFileData:UIImageJPEGRepresentation((UIImage *)item,g_image_compression_quality) name:key fileName:[NSString stringWithFormat:@"%@.jpg",key] mimeType:task.mimeType];
+                NSString *filename;
+                if (task.fileNames[key]) {
+                    filename = task.fileNames[key];
+                }else{
+                    filename = [NSString stringWithFormat:@"%@.jpg",key];
+                }
+                
+                if ([[filename lowercaseString] rangeOfString:@".png"].location == filename.length - 4) {
+                    [formData appendPartWithFileData:UIImagePNGRepresentation((UIImage *)item)
+                                                name:key
+                                            fileName:filename
+                                            mimeType:@"multipart/mixed"];
+                }else{
+                    [formData appendPartWithFileData:UIImageJPEGRepresentation((UIImage *)item,0.8)
+                                                name:key
+                                            fileName:filename
+                                            mimeType:@"multipart/mixed"];
+                }
+                
+                
             }
         }
     } error:&error];

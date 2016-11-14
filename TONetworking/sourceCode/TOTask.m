@@ -12,6 +12,11 @@
 #import "TOHTTPRequestHelper.h"
 
 @interface TOTask ()
+{
+    NSMutableDictionary *_parames;
+}
+
+@property (nonatomic,strong) NSMutableDictionary *fileNames;
 
 @property (nonatomic,assign) BOOL isLoading;
 @property (nonatomic,copy) void (^successBlock)(TOTask *);
@@ -57,7 +62,6 @@ static int taskIndex = 10000;
         _path = nil;
         _taskKey = nil;
         _taskId = [TOTask next];
-        _parames = [NSMutableDictionary dictionary];
         _owner = nil;
         _taskOverHandler = nil;
         _taskErrorHandler = nil;
@@ -120,16 +124,19 @@ static int taskIndex = 10000;
 
 
 - (void)addParam:(NSObject *)value forKey:(NSString *)key{
-    if (!_parames) {
-        _parames = [NSMutableDictionary dictionary];
-    }
     if (key) {
         if (!value) {
             value = @"";
         }
-        [_parames setObject:value forKey:key];
+        [self.parames setObject:value forKey:key];
+        [self.fileNames removeObjectForKey:key];
     }
     
+}
+
+-(void)addFile:(NSObject *)value forKey:(NSString *)key withName:(NSString *)fileName{
+    [self addParam:value forKey:key];
+    [self.fileNames setValue:fileName forKey:key];
 }
 
 - (void)startOnQueue{
@@ -176,5 +183,20 @@ static int taskIndex = 10000;
         return _mimeType;
     }
 }
+
+- (NSMutableDictionary *)parames{
+    if (!_parames) {
+        _parames = [NSMutableDictionary dictionary];
+    }
+    return _parames;
+}
+
+- (NSMutableDictionary *)fileNames{
+    if (!_fileNames) {
+        _fileNames = [NSMutableDictionary dictionary];
+    }
+    return _fileNames;
+}
+
 
 @end

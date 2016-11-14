@@ -103,8 +103,18 @@ typedef enum TOTaskStatus{
  *  @param key      参数键
  */
 -(void)addParam:(NSObject *)value forKey:(NSString *)key;
--(void)startOnQueue;
 
+/**
+ *  为请求添加参数
+ *
+ *  @param value    文件      支持UIImage、NSData自动识别
+ *  @param key      文件键
+ *  @param fileName 文件名     UIImage类型支持*.jpg,*.png自动转换，无后追默认使用jpg
+ */
+-(void)addFile:(NSObject *)value forKey:(NSString *)key withName:(NSString *)fileName;
+
+
+-(void)startOnQueue;
 -(void)startAtOnce;
 -(void)startThread;
 
