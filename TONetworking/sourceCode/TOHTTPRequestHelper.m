@@ -121,7 +121,7 @@ static AFHTTPSessionManager *_manager;
                                             fileName:filename
                                             mimeType:@"multipart/mixed"];
                 }else{
-                    [formData appendPartWithFileData:UIImageJPEGRepresentation((UIImage *)item,0.8)
+                    [formData appendPartWithFileData:UIImageJPEGRepresentation((UIImage *)item,g_image_compression_quality)
                                                 name:key
                                             fileName:filename
                                             mimeType:@"multipart/mixed"];
