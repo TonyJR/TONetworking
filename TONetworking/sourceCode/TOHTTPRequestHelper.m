@@ -11,9 +11,29 @@
 #import "AFNetworking.h"
 #import "AFURLRequestSerialization.h"
 #import "TOTaskConfig.h"
+#import <objc/runtime.h>
+
+@interface TOTask (HTTPTask)
+
+@property (nonatomic,weak) NSURLSessionDataTask *httpTask;
+
+@end
+
+@implementation TOTask (HTTPTask)
+
+- (void)setHttpTask:(NSURLSessionDataTask *)httpTask{
+    objc_setAssociatedObject(self, @"TOTask_HTTPTask", [NSNumber numberWithBool:httpTask], OBJC_ASSOCIATION_ASSIGN);
+}
+
+- (NSURLSessionDataTask *)httpTask{
+    return objc_getAssociatedObject(self, @"TOTask_HTTPTask");
+}
+
+@end
 
 @interface TOTask ()
 @property (nonatomic,strong) NSMutableDictionary *fileNames;
+
 @end
 
 @implementation TOHTTPRequestHelper
@@ -87,8 +107,8 @@ static AFHTTPSessionManager *_manager;
     NSError * error;
     
     
-    
     NSMutableURLRequest * request;
+    
     
     request = [manager.requestSerializer multipartFormRequestWithMethod:task.method URLString:[[NSURL URLWithString:task.path relativeToURL:manager.baseURL] absoluteString] parameters:dic constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         NSArray * _keys = task.parames.allKeys;
@@ -153,8 +173,9 @@ static AFHTTPSessionManager *_manager;
         }
         
     }];
-    
     [sessionDataTask resume];
+    
+    task.httpTask = sessionDataTask;
 }
 
 + (void)doGet:(nonnull TOTask *)task
@@ -168,7 +189,7 @@ static AFHTTPSessionManager *_manager;
     }else{
         [manager.requestSerializer setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
     }
-    [manager GET:task.path
+    task.httpTask = [manager GET:task.path
       parameters:task.parames
         progress:progressHandler
          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -204,7 +225,7 @@ static AFHTTPSessionManager *_manager;
     }else{
         [manager.requestSerializer setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
     }
-    [manager PUT:task.path
+    task.httpTask = [manager PUT:task.path
       parameters:task.parames
          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
              __block NSURLSessionDataTask * sessionDataTask = task;
@@ -237,7 +258,7 @@ static AFHTTPSessionManager *_manager;
     }else{
         [manager.requestSerializer setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
     }
-    [manager DELETE:task.path
+    task.httpTask = [manager DELETE:task.path
          parameters:task.parames
             success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 __block NSURLSessionDataTask * sessionDataTask = task;
@@ -256,6 +277,10 @@ static AFHTTPSessionManager *_manager;
                     });
                 }
             }];
+}
+
++ (void)cancel:(nonnull TOTask *)task{
+    [task.httpTask cancel];
 }
 
 

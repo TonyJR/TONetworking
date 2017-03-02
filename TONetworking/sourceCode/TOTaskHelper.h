@@ -22,6 +22,7 @@
 @optional
 + (void)beforeTask:(nonnull TOTask *)task;
 + (BOOL)afterTask:(nonnull TOTask *)task;
++ (void)cancel:(nonnull TOTask *)task;
 
 
 @end

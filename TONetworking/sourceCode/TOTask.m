@@ -46,6 +46,7 @@ static int taskIndex = 10000;
 }
 - (void)setStatus:(TOTaskStatus)status{
     if (status == TOTaskCancel) {
+        [self.taskHelper cancel:self];
         if (!self.isLoading) {
             status = TOTaskWaitting;
         }
