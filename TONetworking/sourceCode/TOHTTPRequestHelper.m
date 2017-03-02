@@ -15,14 +15,14 @@
 
 @interface TOTask (HTTPTask)
 
-@property (nonatomic,weak) NSURLSessionDataTask *httpTask;
+@property (nonatomic,strong) NSURLSessionDataTask *httpTask;
 
 @end
 
 @implementation TOTask (HTTPTask)
 
 - (void)setHttpTask:(NSURLSessionDataTask *)httpTask{
-    objc_setAssociatedObject(self, @"TOTask_HTTPTask", [NSNumber numberWithBool:httpTask], OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, @"TOTask_HTTPTask", [NSNumber numberWithBool:httpTask], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (NSURLSessionDataTask *)httpTask{
