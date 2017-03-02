@@ -22,7 +22,7 @@
 @implementation TOTask (HTTPTask)
 
 - (void)setHttpTask:(NSURLSessionDataTask *)httpTask{
-    objc_setAssociatedObject(self, @"TOTask_HTTPTask", httpTask, OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, @"TOTask_HTTPTask", httpTask, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (NSURLSessionDataTask *)httpTask{
