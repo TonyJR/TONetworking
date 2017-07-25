@@ -533,6 +533,7 @@ static TONetwork * _sharedNetwork = nil;
 
 //请求成功
 - (void)requestFinished:(TOTask *)task{
+    [self.threadTasks removeObject:task];
 
     
     if (task) {
