@@ -74,4 +74,4 @@ TOTask * task = [[TOTask alloc] initWithPath:@"http://apis.juhe.cn/cook/query.ph
 
 License
 -------
-UITextView+PlaceholderExt is under MIT license. See LICENSE for more information.
+TONetworking is under MIT license. See LICENSE for more information.
