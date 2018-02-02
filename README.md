@@ -1,6 +1,10 @@
 # TONetworking 
 
 [![CocoaPods](https://img.shields.io/cocoapods/v/TONetworking.svg?style=flat)](http://cocoapods.org/?q=name%3ATONetworking)
+[![CocoaPods](https://img.shields.io/cocoapods/p/TONetworking.svg?style=flat)](https://github.com/TonyJR/TONetworking)
+[![CocoaPods](https://img.shields.io/cocoapods/at/TONetworking.svg?style=flat)](http://cocoapods.org/?q=name%3ATONetworking)
+[![CocoaPods](https://img.shields.io/cocoapods/dt/TONetworking.svg?style=flat)](https://github.com/TonyJR/TONetworking)
+[![CocoaPods](https://img.shields.io/cocoapods/l/TONetworking.svg?style=flat)](https://github.com/TonyJR/TONetworking/blob/master/LICENSE)
 
 ==============
 
