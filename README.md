@@ -1,7 +1,7 @@
-# TONetworking
+# TONetworking [![CocoaPods](https://img.shields.io/cocoapods/v/TONetworking.svg?style=flat)](http://cocoapods.org/?q=name%3ATONetworking)
 ==============
 
-[![CocoaPods](https://img.shields.io/cocoapods/v/TONetworking.svg?style=flat)](http://cocoapods.org/?q=name%3ATONetworking)
+
 
 基于HTTP协议的任务系统。对多个请求任务进行管理，轻松处理任务队列、并发任务、任务进度、互斥任务等情况。
 
